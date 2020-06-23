@@ -49,6 +49,11 @@ if (config.nodeEnv === "production") {
   app.use(express.static("client/build"));
 }
 
+// Cannot serve a static single page application with dynamic routes without the following
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
+
 // Listening
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
