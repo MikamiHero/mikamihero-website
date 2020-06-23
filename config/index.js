@@ -1,3 +1,6 @@
+// Define a config object to be exported
+const config = {};
+
 // Config taken from environment variables
 config.nodeEnv = process.env.NODE_ENV;
 
