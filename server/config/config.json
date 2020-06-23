@@ -1,9 +1,9 @@
 {
   "dev": {
-    "mongodbURI": "mongodb+srv://admin:mikami4LIFE!@cluster0-1dgus.mongodb.net/test?retryWrites=true&w=majority",
-    "mailGunDomain": "sandbox0d6c526a4959459793b766bdc67bd6e0.mailgun.org",
-    "mailGunAPIKey": "6d2b918888fa46667561999d4c1aa36c-1b6eb03d-399b7b08",
-    "mailGunToEmail": "mikamihero@gmail.com"
+    "mongodbURI": "",
+    "mailGunDomain": "",
+    "mailGunAPIKey": "",
+    "mailGunToEmail": ""
   },
   "test": {},
   "production": {}
