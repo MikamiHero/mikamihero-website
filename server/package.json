@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd ../client && npm run build",
+    "install-client": "cd ../client && npm install",
+    "heroku-postbuild": "",
+    "start": "node server.js",
+    "dev": "cross-env NODE_ENV=dev nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cross-env": "^7.0.2",
+    "express": "^4.17.1",
+    "lodash.orderby": "^4.6.0",
+    "moment": "^2.26.0",
+    "mongoose": "^5.9.17",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.4.8",
+    "nodemailer-mailgun-transport": "^2.0.0",
+    "nodemon": "^2.0.4",
+    "request-promise": "^4.2.5"
+  }
+}

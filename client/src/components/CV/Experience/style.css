@@ -1,0 +1,16 @@
+.experience-company {
+  color: rgb(146, 0, 146);
+  font-weight: bold;
+}
+
+.experience-duration {
+  font-variant-caps: small-caps;
+}
+
+.experience-divider {
+  border: none;
+  height: 1px;
+  /* Set the hr color */
+  color: rgb(174, 170, 170); /* old IE */
+  background-color: rgb(174, 170, 170); /* Modern Browsers */
+}

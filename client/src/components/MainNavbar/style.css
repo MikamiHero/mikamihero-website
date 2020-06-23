@@ -1,0 +1,20 @@
+.color-nav {
+  background-color: rgb(14, 36, 6);
+}
+
+.nav-link {
+  color: white !important;
+}
+
+.nav-link.disabled {
+  color: grey !important;
+}
+
+.nav-link.active {
+  background-color: rgb(23, 101, 36) !important;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+}

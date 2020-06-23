@@ -1,0 +1,25 @@
+.cv-heading {
+  text-align: center;
+  color: #920092;
+  padding-bottom: 10px;
+}
+
+.cv-section-heading {
+  color: #920092;
+  font-variant: small-caps;
+}
+
+.hr-heading {
+  border: none;
+  height: 3px;
+  /* Set the hr color */
+  color: #333; /* old IE */
+  background-color: #333; /* Modern Browsers */
+}
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+  display: block;
+  width: 100%;
+}

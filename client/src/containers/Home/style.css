@@ -1,0 +1,19 @@
+.h5,
+h5 {
+  margin-top: 10px;
+}
+
+.about-me-img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 0px !important;
+}
+
+.link {
+  font-size: 17px;
+  color: #fff;
+}
+.link:hover {
+  color: #00f;
+}
