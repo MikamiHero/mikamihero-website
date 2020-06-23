@@ -1,4 +1,4 @@
 # no modules
 ./client/node_modules
-./server/node_modules
-./server/config/config.json
+node_modules
+config/config.json
