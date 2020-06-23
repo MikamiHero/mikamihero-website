@@ -9,7 +9,7 @@
     "heroku-postbuild": "",
     "client": "cd client && npm start",
     "start": "node server.js",
-    "dev": "concurrently -n 'server,client' \"cross-env NODE_ENV=dev nodemon server.js\" \"npm run client\"",
+    "dev": "concurrently -n 'server,client' -c 'magenta,green' \"cross-env NODE_ENV=dev nodemon server.js\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
