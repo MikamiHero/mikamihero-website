@@ -6,7 +6,7 @@
   "scripts": {
     "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
-    "heroku-postbuild": "",
+    "heroku-postbuild": "npm run install-client && npm run build",
     "client": "cd client && npm start",
     "start": "node server.js",
     "dev": "concurrently -n 'server,client' -c 'magenta,green' \"cross-env NODE_ENV=dev nodemon server.js\" \"npm run client\"",
