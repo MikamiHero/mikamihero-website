@@ -46,7 +46,7 @@ app.use("/publication", publicationRoute);
 
 // Checking if we're on prod (e.g., need to build)
 if (config.nodeEnv === "production") {
-  app.use(express.static("../client/build"));
+  app.use(express.static("client/build"));
 }
 
 // Listening
