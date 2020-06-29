@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -15,6 +15,9 @@ import useInput from "../../hooks/inputHook";
 // Stylesheets
 import "./style.css";
 
+// Contact page document title
+const contactTitle = "Contact";
+
 // Redirect URL after submitting contact form
 const thankyouURL = "/thankyou";
 const errorURL = "/error";
@@ -23,6 +26,11 @@ const errorURL = "/error";
 const sendContactFormURL = "/contact/send";
 
 const Contact = (props) => {
+  useEffect(() => {
+    // Setting the document title
+    document.title = contactTitle;
+  });
+
   // form fields hooks
   const { value: name, bind: bindName, reset: resetName } = useInput("");
   const { value: email, bind: bindEmail, reset: resetEmail } = useInput("");

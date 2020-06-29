@@ -14,6 +14,9 @@ import Experience from "../../components/CV/Experience";
 import Education from "../../components/CV/Education";
 import Publication from "../../components/CV/Publication";
 
+// Document title
+const cvTitle = "CV";
+
 // Backend URLs
 const getExperienceURL = "/experience";
 const getEducationURL = "/education";
@@ -34,6 +37,8 @@ const CV = (props) => {
 
   // Loading the components of the CV from the backend
   useEffect(() => {
+    // Setting the document title
+    document.title = cvTitle;
     // Strengths and attributes
     setStrengths([
       "Back-end web development (Node.js, SQL Server, MongoDB, Express)",

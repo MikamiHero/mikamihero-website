@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -7,7 +7,14 @@ import Col from "react-bootstrap/Col";
 // Stylesheet and assets
 import "./style.css";
 
+// Error page title
+const errorTitle = "Error";
+
 const ErrorPage = (props) => {
+  useEffect(() => {
+    // Setting the document title
+    document.title = errorTitle;
+  });
   return (
     <Jumbotron className="vertical-center">
       <Container className="text-center">
