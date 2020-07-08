@@ -30,9 +30,7 @@ const MainNavbar = (props) => {
           <NavLink disabled href="/twitch">
             Twitch
           </NavLink>
-          <NavLink disabled href="/programming">
-            Programming
-          </NavLink>
+          <NavLink href="/programming">Programming</NavLink>
           <NavLink disabled href="/math">
             Math
           </NavLink>

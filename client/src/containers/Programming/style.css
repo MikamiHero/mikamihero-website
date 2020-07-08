@@ -1,0 +1,51 @@
+.container {
+  margin-bottom: 10px;
+}
+
+.programming-heading {
+  text-align: center;
+  color: #920092;
+  padding-bottom: 10px;
+}
+
+.striped-border {
+  border: 1px dashed #000;
+  width: 50%;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.project-thumbnail {
+  max-width: 128px;
+  max-height: 128px;
+}
+
+.link {
+  font-size: 17px;
+  color: #fff;
+}
+.link:hover {
+  color: #00f;
+}
+
+.programming-project-img {
+  width: 100%;
+  height: auto;
+  opacity: 0.4;
+}
+
+.programming-project {
+  position: relative;
+  margin: 0 auto; /* Center it */
+  padding-bottom: 20px;
+}
+
+.programming-project-content {
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(44, 47, 51, 0.7); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 100%; /* Full width */
+  height: 100%;
+  padding: 20px; /* Some padding */
+}

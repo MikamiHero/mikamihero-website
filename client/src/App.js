@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./containers/Home";
 import CV from "./containers/CV";
 import Blog from "./containers/Blog";
+import Programming from "./containers/Programming";
 import Contact from "./containers/Contact";
 import ThankYou from "./containers/ThankYou";
 import ErrorPage from "./containers/ErrorPage";
@@ -30,6 +31,7 @@ class App extends React.Component {
             <Route exact path="/" exact component={Home} />
             <Route exact path="/cv" exact component={CV} />
             <Route exact path="/blog" exact component={Blog} />
+            <Route exact path="/programming" exact component={Programming} />
             <Route exact path="/contact" exact component={Contact} />
             <Route exact path="/thankyou" exact component={ThankYou} />
             <Route exact path="/error" exact component={ErrorPage} />
