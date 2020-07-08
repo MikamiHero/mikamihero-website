@@ -5,6 +5,24 @@ import Col from "react-bootstrap/Col";
 // importing stylesheet and other assets
 import "./style.css";
 
+// Thesis title
+const thesisTitle = "Applications of the Mellin Transform in Mathematical Finance";
+
+// Custom function for hyperlinking my thesis
+const hyperlinkThesis = ({ text, textToLink }) => {
+  const textArr = text.split(textToLink);
+  return (
+    <span>
+      {textArr.map((item, index) => (
+        <>
+          {item}
+          {index !== textArr.length - 1 && <a href="https://ro.uow.edu.au/theses1/189/">{textToLink}</a>}
+        </>
+      ))}
+    </span>
+  );
+};
+
 // Props are passed down like normal function args.
 // Destructure `educationList` from the props object
 const Education = ({ educationList }) =>
@@ -31,6 +49,14 @@ const Education = ({ educationList }) =>
         </Col>
       ) : (
         ""
+      )}
+      {/* Only display extra notes for PhD for now (hyperlink thesis) */}
+      {education.qualification !== "Doctor of Philosophy (Mathematics)" ? (
+        ""
+      ) : (
+        <Col xs={12} sm={12} md={12} lg={12}>
+          {hyperlinkThesis({ text: education.extraNotes, textToLink: thesisTitle })}
+        </Col>
       )}
       <Col xs={12} sm={12} md={12} lg={12}>
         <hr className="education-divider" />
