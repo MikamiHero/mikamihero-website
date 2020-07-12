@@ -29,13 +29,13 @@ const Programming = (props) => {
           </p>
         </Col>
       </Row>
-      <Row className="programming-project">
-        <img src={OracleBotDemo} className="programming-project-img" />
-
-        <div className="programming-project-content">
+      <Row>
+        {/* Oracle */}
+        <Col md={12} lg={6} className="project-item">
+          <div className="project-img" style={{ backgroundImage: "url(" + OracleBotDemo + ")" }}></div>
           <h1 className="text-center">Oracle</h1>
           <h6 className="text-warning text-center">Discord bot</h6>
-          <p>
+          <p className="project-description">
             This is a bot I've developed for my{" "}
             <a className="text-warning" href="https://discord.gg/MikamiHero">
               Discord
@@ -47,21 +47,19 @@ const Programming = (props) => {
               here.
             </a>
           </p>
-        </div>
-        <href />
-      </Row>
-      <Row className="programming-project">
-        <img src={WebsiteDemo} className="programming-project-img" />
-        <div className="programming-project-content">
-          <h1 className="text-center">This website</h1>
+        </Col>
+        {/* Website */}
+        <Col md={12} lg={6} className="project-item">
+          <div className="project-img" style={{ backgroundImage: "url(" + WebsiteDemo + ")" }}></div>
+          <h1 className="text-center">Website</h1>
           <h6 className="text-info text-center">Web development</h6>
-          <p>
+          <p className="project-description">
             The code base for this website. Built using the MERN stack and hosted on Heroku. The repo can be found{" "}
             <a className="text-info" href="https://github.com/MikamiHero/mikamihero-website">
               here.
             </a>
           </p>
-        </div>
+        </Col>
       </Row>
     </Container>
   );
