@@ -17,7 +17,7 @@ passport.use(
   new JwtStrategy(
     {
       jwtFromRequest: cookieExtractor,
-      secretOrKey: config.,
+      secretOrKey: config.jwtSecret,
     },
     async (payload, done) => {
       try {
@@ -36,17 +36,22 @@ passport.use(
   )
 );
 
-// authenticated local strategy using username and passport. 'done' is verified function that gets invoked later
+// login/authenticated local strategy using username and passport. 'done' is verified function that gets invoked later
 passport.use(
   new LocalStrategy(async (username, password, done) => {
     try {
       const matchedUser = await User.findOne({ username });
       // no matching user
       if (!matchedUser) {
-        return done(null, false);
+        return done(null, false, { message: "User not found" });
       }
       // check if password is correct
-      matchedUser.comparePassword(password, done);
+      const correctPassword = matchedUser.comparePassword(password);
+      if (!correctPassword) {
+        return done(null, false, { message: "Password incorrect" });
+      }
+      // Send user info to the next middleware
+      return done(null, user, { message: "Logged in successfully" });
     } catch (err) {
       // something went wrong with DB
       return done(err);
