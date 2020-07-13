@@ -29,6 +29,9 @@
     "nodemailer": "^6.4.8",
     "nodemailer-mailgun-transport": "^2.0.0",
     "nodemon": "^2.0.4",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
     "request-promise": "^4.2.5"
   }
 }
