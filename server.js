@@ -40,12 +40,14 @@ const educationRoute = require("./routes/education");
 const experienceRoute = require("./routes/experience");
 const publicationRoute = require("./routes/publication");
 const readingRoute = require("./routes/reading");
+const userRoute = require("./routes/user");
 app.use("/blog", blogRoute);
 app.use("/contact", contactRoute);
 app.use("/education", educationRoute);
 app.use("/experience", experienceRoute);
 app.use("/publication", publicationRoute);
 app.use("/reading", readingRoute);
+app.use("/user", userRoute);
 
 // Checking if we're on prod (e.g., need to build)
 if (config.nodeEnv === "production") {

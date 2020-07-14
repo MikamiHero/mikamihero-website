@@ -13,6 +13,7 @@ const cookieExtractor = (req) => {
 };
 
 // authorization middleware (e.g., protect routes) to extract the token from the request that gets set in the cookie of the client's browser when authenticated
+// to refer to this middleware, we use passport.authenticate('jwt', {session: false})
 passport.use(
   new JwtStrategy(
     {
@@ -37,16 +38,17 @@ passport.use(
 );
 
 // login/authenticated local strategy using username and passport. 'done' is verified function that gets invoked later
+// to refer to this middleware, we use passport.authenticate('local', {session: false})
 passport.use(
   new LocalStrategy(async (username, password, done) => {
     try {
-      const matchedUser = await User.findOne({ username });
+      const user = await User.findOne({ username });
       // no matching user
-      if (!matchedUser) {
+      if (!user) {
         return done(null, false, { message: "User not found" });
       }
       // check if password is correct
-      const correctPassword = matchedUser.comparePassword(password);
+      const correctPassword = await user.comparePassword(password);
       if (!correctPassword) {
         return done(null, false, { message: "Password incorrect" });
       }

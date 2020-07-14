@@ -17,6 +17,7 @@ config.goodreadsAPIKey = process.env.GOODREADS_API_KEY;
 config.goodreadsSecret = process.env.GOODREADS_API_SECRET;
 
 // JWT/authorization config
+config.jwtIssuer = process.env.JWT_ISSUER;
 config.jwtSecret = process.env.JWT_SECRET;
 
 module.exports = config;
