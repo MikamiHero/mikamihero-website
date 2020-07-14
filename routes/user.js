@@ -17,10 +17,15 @@ router.post("/login", passport.authenticate("local", { session: false }), async 
     // Sign the token via JWT sign
     const token = signToken({ userID: _id });
     // httpOnly to prevent client-side cross-site scripting attacks; sameSite cross-site request forgery attacks
-    res.cookie("access_token", token, { httpOnly: true, sameSite: true });
+    await res.cookie("access_token", token, { httpOnly: true, sameSite: true });
     // Return if all is well
     return res.status(200).json({ isAuthentiated: true, user: { username, role } });
   }
+});
+
+router.get("/logout", passport.authenticate("jwt", { session: false }), async (req, res, next) => {
+  await res.clearCookie("access_token");
+  return res.status(200).json({ user: { username: "", role: "" }, success: true });
 });
 
 module.exports = router;

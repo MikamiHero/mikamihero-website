@@ -23,8 +23,8 @@ passport.use(
     async (payload, done) => {
       try {
         // payload.sub is the primary key of the user
-        const matchedUser = await User.findById({ _id: payload.sub });
-        if (!matchedUser) {
+        const user = await User.findById({ _id: payload.sub });
+        if (!user) {
           // no user with this primary key
           return done(null, false);
         }
