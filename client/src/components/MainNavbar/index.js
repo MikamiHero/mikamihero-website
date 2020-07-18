@@ -24,9 +24,7 @@ const MainNavbar = (props) => {
           <NavLink disabled href="/blog">
             Blog
           </NavLink>
-          <NavLink disabled href="/books">
-            Books/Reading
-          </NavLink>
+          <NavLink href="/reading">Reading</NavLink>
           <NavLink disabled href="/twitch">
             Twitch
           </NavLink>

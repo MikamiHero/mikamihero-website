@@ -5,7 +5,6 @@ const { sendEmail } = require("../utils/handleEmail");
 // Save the contact form details
 router.post("/send", async (req, res) => {
   try {
-    console.log(req.body);
     // Send off the email
     const sendEmailAboutContact = await sendEmail({
       email: req.body.email,
