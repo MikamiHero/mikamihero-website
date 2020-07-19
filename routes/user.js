@@ -28,4 +28,18 @@ router.get("/logout", passport.authenticate("jwt", { session: false }), async (r
   return res.status(200).json({ user: { username: "", role: "" }, success: true });
 });
 
+router.get("/admin", passport.authenticate("jwt", { session: false }), async (req, res, next) => {
+  if (req.user.role !== "admin") {
+    return res.status(403).json({ isAdmin: false, message: "You are NOT an admin." });
+  }
+  return res.status(200).json({ isAdmin: true, message: "You are an admin." });
+});
+
+// Client persistence (e.g., so state won't reset if someone logs in and ensures proper sync between frontend and backend)
+router.get("/authenticated", passport.authenticate("jwt", { session: false }), async (req, res, next) => {
+  // passport attaches the user
+  const { username, role } = req.user;
+  return res.status(200).json({ isAuthenticated: true, user: { username, role } });
+});
+
 module.exports = router;
