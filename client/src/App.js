@@ -12,6 +12,7 @@ import Blog from "./containers/Blog";
 import Reading from "./containers/Reading";
 import Programming from "./containers/Programming";
 import Contact from "./containers/Contact";
+import Login from "./containers/Login";
 import ThankYou from "./containers/ThankYou";
 import ErrorPage from "./containers/ErrorPage";
 
@@ -36,6 +37,7 @@ function App() {
           <Route exact path="/reading" exact component={Reading} />
           <Route exact path="/programming" exact component={Programming} />
           <Route exact path="/contact" exact component={Contact} />
+          <Route exact path="/login" exact component={Login} />
           <Route exact path="/thankyou" exact component={ThankYou} />
           <Route exact path="/error" exact component={ErrorPage} />
         </Switch>

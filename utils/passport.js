@@ -45,15 +45,15 @@ passport.use(
       const user = await User.findOne({ username });
       // no matching user
       if (!user) {
-        return done(null, false, { message: "User not found" });
+        return done(null, false);
       }
       // check if password is correct
       const correctPassword = await user.comparePassword(password);
       if (!correctPassword) {
-        return done(null, false, { message: "Password incorrect" });
+        return done(null, false);
       }
       // Send user info to the next middleware
-      return done(null, user, { message: "Logged in successfully" });
+      return done(null, user);
     } catch (err) {
       // something went wrong with DB
       return done(err);

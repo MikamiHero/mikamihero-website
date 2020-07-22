@@ -19,7 +19,7 @@ router.post("/login", passport.authenticate("local", { session: false }), async 
     // httpOnly to prevent client-side cross-site scripting attacks; sameSite cross-site request forgery attacks
     await res.cookie("access_token", token, { httpOnly: true, sameSite: true });
     // Return if all is well
-    return res.status(200).json({ isAuthentiated: true, user: { username, role } });
+    return res.status(200).json({ isAuthenticated: true, user: { username, role } });
   }
 });
 
