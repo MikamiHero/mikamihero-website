@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 // stylesheets and other assets
 import "./style.css";
 
-const Programming = (props) => {
+const Reading = (props) => {
   return (
     <Container>
       <Row>
@@ -53,4 +53,4 @@ const Programming = (props) => {
   );
 };
 
-export default Programming;
+export default Reading;

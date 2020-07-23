@@ -9,7 +9,6 @@ const readingSchema = new Schema(
     readDate: { type: Date, required: true },
     isbn: { type: String, required: true, unique: true },
     genre: { type: String, required: true },
-    rating: { type: Number, required: false },
     review: { type: String, required: false },
     bookCoverURL: { type: String, required: false },
   },

@@ -11,10 +11,9 @@ const getStyle = (props) => {
 };
 
 const Message = (props) => {
-  console.log(props);
   return (
     <div className={getStyle(props)} role="alert">
-      {props.message.error}
+      {props.message.msg}
     </div>
   );
 };

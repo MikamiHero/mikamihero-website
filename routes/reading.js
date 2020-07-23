@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
     });
     return res.status(200).json({ success: true, reading: parsedReadingList });
   } catch (err) {
-    return res.status(500).json({ success: false, error: err.message });
+    return res.status(500).json({ success: false, message: err.message });
   }
 });
 
@@ -24,7 +24,7 @@ router.get("/:id", async (req, res) => {
     const reading = await Reading.findById(req.params.id);
     return res.status(200).json({ success: true, reading });
   } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+    res.status(500).json({ success: false, message: err.message });
   }
 });
 
@@ -33,12 +33,17 @@ router.post("/", passport.authenticate("jwt", { session: false }), async (req, r
   try {
     const title = req.body.title;
     const authors = req.body.authors;
-    const readDate = moment.utc(req.body.readDate, "DD-MMM-YYYY").format();
+    const readDate = moment(req.body.readDate).format("DD-MMM-YYYY");
     const isbn = req.body.isbn;
     const genre = req.body.genre;
     const rating = req.body.rating;
     const review = req.body.review;
     const bookCoverURL = req.body.bookCoverURL;
+
+    // Pre-check if ISBN is a number or not
+    if (isNaN(isbn)) {
+      return res.status(400).json({ success: false, message: "ISBN is not a number" });
+    }
 
     const newReading = new Reading({
       title,
@@ -52,10 +57,9 @@ router.post("/", passport.authenticate("jwt", { session: false }), async (req, r
     });
 
     const newReadingSaved = await newReading.save();
-    return res.status(200).json({ sucess: true, reading: newReadingSaved });
+    return res.status(200).json({ success: true, message: "Reading added successfully", reading: newReadingSaved });
   } catch (err) {
-    console.log(err);
-    return res.status(500).json({ success: false, error: err.message });
+    return res.status(500).json({ success: false, message: err.message });
   }
 });
 
@@ -69,7 +73,7 @@ router.put("/:id", passport.authenticate("jwt", { session: false }), async (req,
 
     reading.title = req.body.title;
     reading.authors = req.body.authors;
-    reading.readDate = moment.utc(req.body.readDate, "DD-MMM-YYYY").format();
+    reading.readDate = moment(req.body.readDate).format("DD-MMM-YYYY");
     reading.isbn = req.body.isbn;
     reading.genre = req.body.genre;
     reading.rating = req.body.rating;
@@ -79,7 +83,7 @@ router.put("/:id", passport.authenticate("jwt", { session: false }), async (req,
     const updatedReading = await reading.save();
     return res.status(200).json({ sucess: true, reading: updatedReading });
   } catch (err) {
-    return res.status(500).json({ success: false, error: err.message });
+    return res.status(500).json({ success: false, message: err.message });
   }
 });
 
@@ -89,7 +93,7 @@ router.delete("/:id", passport.authenticate("jwt", { session: false }), async (r
     const reading = await Reading.findByIdAndDelete(req.params.id);
     return res.status(200).json({ sucess: true, message: "Reading deleted" });
   } catch (err) {
-    return res.status(500).json({ success: false, error: err.message });
+    return res.status(500).json({ success: false, message: err.message });
   }
 });
 
