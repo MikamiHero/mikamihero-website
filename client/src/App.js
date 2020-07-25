@@ -16,11 +16,14 @@ import Contact from "./containers/Contact";
 import Login from "./containers/Login";
 import ThankYou from "./containers/ThankYou";
 import ErrorPage from "./containers/ErrorPage";
+import Admin from "./containers/Admin";
 
 // Main components
 import MainNavbar from "./components/MainNavbar";
 
-import { AuthContext } from "./context/AuthContext";
+// Higher-order components (HOCs - e.g., PrivateRoute)
+import PrivateRoute from "./hocs/PrivateRoute";
+import UnPrivateRoute from "./hocs/UnPrivateRoute";
 
 // Enables us to set active highlighted tab in navbar
 const NavbarWithRouter = withRouter(MainNavbar);
@@ -36,12 +39,13 @@ function App() {
           <Route exact path="/cv" exact component={CV} />
           <Route exact path="/blog" exact component={Blog} />
           <Route exact path="/reading" exact component={Reading} />
-          <Route exact path="/reading/add" exact component={NewReading} />
+          <PrivateRoute path="/reading/add" roles={["admin"]} component={NewReading} />
           <Route exact path="/programming" exact component={Programming} />
           <Route exact path="/contact" exact component={Contact} />
-          <Route exact path="/login" exact component={Login} />
+          <UnPrivateRoute path="/login" roles={["admin"]} component={Login} />
           <Route exact path="/thankyou" exact component={ThankYou} />
           <Route exact path="/error" exact component={ErrorPage} />
+          <PrivateRoute path="/admin" roles={["admin"]} component={Admin} />
         </Switch>
       </div>
     </Router>

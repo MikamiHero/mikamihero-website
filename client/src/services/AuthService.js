@@ -31,7 +31,8 @@ export default {
     const isAuth = await fetch(isAuthenticatedURL);
     // Passport automatically appends 401 status code if we are not authenticated
     if (isAuth.status !== 401) {
-      return isAuth;
+      const isAuthJSON = await isAuth.json();
+      return isAuthJSON;
     }
     return { isAuthenticated: false, user: { username: "", role: "" } };
   },
