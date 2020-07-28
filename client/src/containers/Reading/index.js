@@ -56,10 +56,10 @@ const Reading = (props) => {
       <Row>
         <Col lg={12}>
           <p>
-            I love reading and I try to get anywhere from 3 to 5 books done in a month. Below you'll find a list of
-            books that I've read in descending order of date finished. If you click on the book cover, it'll take you to
-            a page with more information about the book (e.g., genre, ISBN) as well as a short review (if I've provided
-            one).
+            I love reading and I try to finish anywhere from 3 to 5 books in a month. Below you'll find a list of books
+            that I've read (sorted by descending order of date finished). If you click on the book cover, it'll take you
+            to a page with more information about the book (e.g., genre, ISBN) as well as a short review (if I've
+            provided one).
           </p>
         </Col>
       </Row>
