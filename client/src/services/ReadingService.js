@@ -1,13 +1,16 @@
 import Axios from "axios";
 
 // backend reading URLs
-const getAllReadingURL = "/reading/login";
+const getAllReadingURL = "/reading";
+const getOneReadingURL = "/reading";
 const postNewReadingURL = "/reading";
 
 export default {
   // get all books service
   getAllReading: async () => await Axios.get(getAllReadingURL),
-  // create
+  // get a single book service
+  getOneReading: async (readingId) => await Axios.get(`${getOneReadingURL}/${readingId}`),
+  // create a new reading entry
   postReading: async (reading) => {
     // using 'fetch' b/c intercepting 401s w/ Axios is a pain :P
     const newReading = await fetch(postNewReadingURL, {
