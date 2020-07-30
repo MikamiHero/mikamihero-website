@@ -18,6 +18,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Get books via query
+router.get("/search", async (req, res) => {
+  try {
+    const readingSearchValue = req.query.searchValue;
+    const reading = await Reading.find({ title: { $regex: readingSearchValue, $options: "i" } });
+    return res.status(200).json({ success: true, reading });
+  } catch (err) {
+    return res.status(500).json({ success: false, message: err.message });
+  }
+});
+
 // Get a book via ID (if you know it)
 router.get("/:id", async (req, res) => {
   try {
