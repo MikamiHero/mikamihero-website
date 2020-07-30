@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 // stylesheets and other assets
 import "./style.css";
@@ -59,7 +59,8 @@ const Reading = (props) => {
             I love reading and I try to finish anywhere from 3 to 5 books in a month. Below you'll find a list of books
             that I've read (sorted by descending order of date finished). If you click on the book cover, it'll take you
             to a page with more information about the book (e.g., genre, ISBN) as well as a short review (if I've
-            provided one).
+            provided one). Alternatively, you may want to go <Link to={{ pathname: `/reading-search/` }}>here</Link> if
+            you want to search for a book that I might have read.
           </p>
         </Col>
       </Row>

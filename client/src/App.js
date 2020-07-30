@@ -12,6 +12,7 @@ import Blog from "./containers/Blog";
 import Reading from "./containers/Reading";
 import NewReading from "./containers/NewReading";
 import SingleReading from "./containers/SingleReading";
+import SearchReading from "./containers/SearchReading";
 import Programming from "./containers/Programming";
 import Contact from "./containers/Contact";
 import Login from "./containers/Login";
@@ -42,6 +43,7 @@ function App() {
           <PrivateRoute path="/reading/add" roles={["admin"]} component={NewReading} />
           <Route exact path="/reading/" exact component={Reading} />
           <Route exact path="/reading/:readingId" exact component={SingleReading} />
+          <Route exact path="/reading-search/" exact component={SearchReading} />
           <Route exact path="/programming" exact component={Programming} />
           <Route exact path="/contact" exact component={Contact} />
           <UnPrivateRoute path="/login" roles={["admin"]} component={Login} />
