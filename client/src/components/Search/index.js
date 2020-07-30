@@ -1,26 +1,38 @@
 import React, { useState } from "react";
-import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 // importing stylesheet and other assets
 import "./style.css";
 
+// Props are passed down like normal function args
 const Search = (props) => {
   // state hooks
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleSearchInputChanges = (event) => {
+    setSearchValue(event.targe.value);
+  };
+
+  const resetInputField = () => {
+    setSearchValue("");
+  };
+
+  const callSearchFunction = (event) => {
+    event.preventDefault();
+    //props.search(searchValue);
+    resetInputField();
+  };
 
   return (
-    <Container>
-      {/*Search Input*/}
-      <label className="search-label" htmlFor="search-input">
-        <input type="text" value="" id="search-input" placeholder="Search..." />
-        <i className="fa fa-search search-icon" />
-      </label>
-    </Container>
+    <Form className="search">
+      <Form.Control className="search-input" value={searchValue} onChange={handleSearchInputChanges} type="text" />
+      <Button onClick={callSearchFunction} type="submit">
+        Search
+      </Button>
+    </Form>
   );
 };
 
