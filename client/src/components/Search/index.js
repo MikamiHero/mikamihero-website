@@ -13,7 +13,7 @@ const Search = (props) => {
   const [searchValue, setSearchValue] = useState("");
 
   const handleSearchInputChanges = (event) => {
-    setSearchValue(event.targe.value);
+    setSearchValue(event.target.value);
   };
 
   const resetInputField = () => {
@@ -22,7 +22,7 @@ const Search = (props) => {
 
   const callSearchFunction = (event) => {
     event.preventDefault();
-    //props.search(searchValue);
+    props.search(searchValue);
     resetInputField();
   };
 
