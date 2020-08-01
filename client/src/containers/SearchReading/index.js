@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // stylesheets and other assets
 import Search from "../../components/Search";
+import ReadingList from "../../components/ReadingList";
 import "./style.css";
 
 // Backend stuff
@@ -18,27 +19,27 @@ const SearchReading = (props) => {
   // State hooks
   const [loading, setLoading] = useState(false);
   const [readings, setReadings] = useState([]);
-
-  // setting up history for redirection (in case of a 500)
-  const history = useHistory();
+  const [searchErrorMessage, setSearchErrorMessage] = useState(null);
 
   // Custom search function to be passed into the search component
   const searchReading = async (searchValue) => {
     setLoading(true);
+    setSearchErrorMessage(null);
     // Fetching the backend data for the reading list
     const fetchReadingData = async () => {
       const readingBackendCall = await ReadingService.searchReading(searchValue);
       // The backend GET call is using Axios, so it'll be embedded inside 'data' attribute
       setReadings(readingBackendCall.data.reading);
-      console.log(readingBackendCall.data.reading);
     };
 
     // Execute the request and pray it doesn't break
     try {
       fetchReadingData();
+      setLoading(false);
     } catch (err) {
       // If the status is 500 from the backend, it'll get caught here
-      history.push(errorURL);
+      setSearchErrorMessage(err.message);
+      setLoading(false);
     }
   };
 
@@ -57,6 +58,15 @@ const SearchReading = (props) => {
       </Row>
       <div className="search-bar-box">
         <Search search={searchReading}></Search>
+      </div>
+      <div className="search-return-books">
+        {loading && !searchErrorMessage ? (
+          <span>Loading...</span>
+        ) : searchErrorMessage ? (
+          <div className="errorMessage">{searchErrorMessage}</div>
+        ) : (
+          <ReadingList readingList={readings}></ReadingList>
+        )}
       </div>
     </Container>
   );
