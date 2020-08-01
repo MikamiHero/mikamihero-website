@@ -51,7 +51,7 @@ const SearchReading = (props) => {
         <Col xs={12}>
           <p>
             Please use the search box below if you want to try find a book that I've read (but may not be present in the
-            most recent <Link to={{ pathname: `/reading/` }}>reading</Link> list). Hopefully you'll find what you're
+            most recent <Link to={{ pathname: `/reading` }}>reading</Link> list). Hopefully you'll find what you're
             looking for!
           </p>
         </Col>
