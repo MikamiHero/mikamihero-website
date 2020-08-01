@@ -15,9 +15,34 @@ import ReadingService from "../../services/ReadingService";
 const errorURL = "/error";
 
 const SearchReading = (props) => {
-  // Loading the components of search reading page
-  useEffect(() => {});
+  // State hooks
+  const [loading, setLoading] = useState(false);
+  const [readings, setReadings] = useState([]);
 
+  // setting up history for redirection (in case of a 500)
+  const history = useHistory();
+
+  // Custom search function to be passed into the search component
+  const searchReading = async (searchValue) => {
+    setLoading(true);
+    // Fetching the backend data for the reading list
+    const fetchReadingData = async () => {
+      const readingBackendCall = await ReadingService.searchReading(searchValue);
+      // The backend GET call is using Axios, so it'll be embedded inside 'data' attribute
+      setReadings(readingBackendCall.data.reading);
+      console.log(readingBackendCall.data.reading);
+    };
+
+    // Execute the request and pray it doesn't break
+    try {
+      fetchReadingData();
+    } catch (err) {
+      // If the status is 500 from the backend, it'll get caught here
+      history.push(errorURL);
+    }
+  };
+
+  // Loading the components of search reading page
   return (
     <Container>
       <h1 className="search-reading-heading">reading (search)</h1>
@@ -31,7 +56,7 @@ const SearchReading = (props) => {
         </Col>
       </Row>
       <div className="search-bar-box">
-        <Search></Search>
+        <Search search={searchReading}></Search>
       </div>
     </Container>
   );

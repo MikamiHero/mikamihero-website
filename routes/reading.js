@@ -22,6 +22,10 @@ router.get("/", async (req, res) => {
 router.get("/search", async (req, res) => {
   try {
     const readingSearchValue = req.query.searchValue;
+    // If the search value is empty, return empty array
+    if (!readingSearchValue || readingSearchValue === "") {
+      return res.status(200).json({ success: true, reading: [] });
+    }
     const reading = await Reading.find({ title: { $regex: readingSearchValue, $options: "i" } });
     return res.status(200).json({ success: true, reading });
   } catch (err) {

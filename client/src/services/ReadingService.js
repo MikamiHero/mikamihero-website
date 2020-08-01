@@ -3,6 +3,7 @@ import Axios from "axios";
 // backend reading URLs
 const getAllReadingURL = "/reading";
 const getOneReadingURL = "/reading";
+const searchReadingURL = "/reading";
 const postNewReadingURL = "/reading";
 
 export default {
@@ -10,6 +11,8 @@ export default {
   getAllReading: async () => await Axios.get(getAllReadingURL),
   // get a single book service
   getOneReading: async (readingId) => await Axios.get(`${getOneReadingURL}/${readingId}`),
+  // search for a single book service
+  searchReading: async (readingValue) => await Axios.get(`${searchReadingURL}/search?searchValue=${readingValue}`),
   // create a new reading entry
   postReading: async (reading) => {
     // using 'fetch' b/c intercepting 401s w/ Axios is a pain :P
