@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Axios from "axios";
 import { useHistory } from "react-router-dom";
 
 // Stylesheets and other assets
@@ -14,13 +13,13 @@ import Experience from "../../components/CV/Experience";
 import Education from "../../components/CV/Education";
 import Publication from "../../components/CV/Publication";
 
+// Backend services
+import ExperienceService from "../../services/ExperienceService";
+import EducationService from "../../services/EducationService";
+import PublicationService from "../../services/PublicationService";
+
 // Document title
 const cvTitle = "CV";
-
-// Backend URLs
-const getExperienceURL = "/api/experience";
-const getEducationURL = "/api/education";
-const getPublicationURL = "/api/publication";
 
 // Redirect URL for error
 const errorURL = "/error";
@@ -51,9 +50,9 @@ const CV = (props) => {
     ]);
     // Setting up async function to fetch CV data from backend (effect cbs are synchronous to prevent race conditions)
     const fetchCVData = async () => {
-      const getExperienceReq = await Axios.get(getExperienceURL);
-      const getEducationReq = await Axios.get(getEducationURL);
-      const getPublicationReq = await Axios.get(getPublicationURL);
+      const getExperienceReq = await ExperienceService.getAllExperience();
+      const getEducationReq = await EducationService.getAllEducation();
+      const getPublicationReq = await PublicationService.getAllPublication();
       setExperiences(getExperienceReq.data.experience);
       setEducations(getEducationReq.data.education);
       setPublications(getPublicationReq.data.publication);
