@@ -26,7 +26,7 @@ router.get("/search", async (req, res) => {
     if (!readingSearchValue || readingSearchValue === "") {
       return res.status(200).json({ success: true, reading: [] });
     }
-    const reading = await Reading.find({ title: { $regex: readingSearchValue, $options: "i" } });
+    const reading = await Reading.find({ title: { $regex: `^${readingSearchValue}`, $options: "i" } });
     return res.status(200).json({ success: true, reading });
   } catch (err) {
     return res.status(500).json({ success: false, message: err.message });
