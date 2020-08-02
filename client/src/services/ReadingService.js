@@ -1,10 +1,10 @@
 import Axios from "axios";
 
 // backend reading URLs
-const getAllReadingURL = "/reading";
-const getOneReadingURL = "/reading";
-const searchReadingURL = "/reading";
-const postNewReadingURL = "/reading";
+const getAllReadingURL = "/api/reading";
+const getOneReadingURL = "/api/reading";
+const searchReadingURL = "/api/reading";
+const postNewReadingURL = "/api/reading";
 
 export default {
   // get all books service

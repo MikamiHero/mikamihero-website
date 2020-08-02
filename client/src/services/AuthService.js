@@ -1,9 +1,10 @@
 import Axios from "axios";
 
 // backend auth URLs
-const loginURL = "/user/login";
-const logoutURL = "/user/logout";
-const isAuthenticatedURL = "/user/authenticated";
+const baseURL = "/api/user";
+const loginURL = `${baseURL}/login`;
+const logoutURL = `${baseURL}/logout`;
+const isAuthenticatedURL = `${baseURL}/authenticated`;
 
 export default {
   // login service

@@ -41,13 +41,13 @@ const experienceRoute = require("./routes/experience");
 const publicationRoute = require("./routes/publication");
 const readingRoute = require("./routes/reading");
 const userRoute = require("./routes/user");
-app.use("/blog", blogRoute);
-app.use("/contact", contactRoute);
-app.use("/education", educationRoute);
-app.use("/experience", experienceRoute);
-app.use("/publication", publicationRoute);
-app.use("/reading", readingRoute);
-app.use("/user", userRoute);
+app.use("/api/blog", blogRoute);
+app.use("/api/contact", contactRoute);
+app.use("/api/education", educationRoute);
+app.use("/api/experience", experienceRoute);
+app.use("/api/publication", publicationRoute);
+app.use("/api/reading", readingRoute);
+app.use("/api/user", userRoute);
 
 // Checking if we're on prod (e.g., need to build)
 if (config.nodeEnv === "production") {

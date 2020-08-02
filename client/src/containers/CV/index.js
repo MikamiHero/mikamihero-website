@@ -18,9 +18,9 @@ import Publication from "../../components/CV/Publication";
 const cvTitle = "CV";
 
 // Backend URLs
-const getExperienceURL = "/experience";
-const getEducationURL = "/education";
-const getPublicationURL = "/publication";
+const getExperienceURL = "/api/experience";
+const getEducationURL = "/api/education";
+const getPublicationURL = "/api/publication";
 
 // Redirect URL for error
 const errorURL = "/error";
