@@ -3,10 +3,16 @@ import { Component } from "react";
 import Header from "../components/header.js";
 import Footer from "../components/footer.js";
 
+import Metadata from "../components/metadata.js";
+
 export default class extends Component {
   render() {
     return (
       <div className="layout-wrapper">
+        <Metadata
+          title="Contact | MikamiHero"
+          metaDescription="Feel free to contact me via email if you have any comments, suggestions, or simply wish to say hello!"
+        />
         <Header />
         <div className="contact-container">
           <div className="contact-section">

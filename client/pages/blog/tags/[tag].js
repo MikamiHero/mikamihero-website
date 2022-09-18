@@ -3,6 +3,8 @@ import { Component } from "react";
 import Header from "../../../components/header.js";
 import Footer from "../../../components/footer.js";
 
+import Metadata from "../../../components/metadata.js";
+
 export default class extends Component {
   // getInitialProps() will run before loading the content of the page (i.e., enable server-side rendering)
   static async getInitialProps({ query }) {
@@ -14,6 +16,10 @@ export default class extends Component {
   render() {
     return (
       <div className="layout-wrapper">
+        <Metadata
+          title={`Blogs tagged as "${this.props.tag}" | MikamiHero`}
+          metaDescription={`All blogs tagged as "${this.props.tag}".`}
+        />
         <Header />
         <div className="blog-posts-container">
           <h1>

@@ -3,10 +3,16 @@ import { Component } from "react";
 import Header from "../../components/header.js";
 import Footer from "../../components/footer.js";
 
+import Metadata from "../../components/metadata.js";
+
 export default class extends Component {
   render() {
     return (
       <div className="layout-wrapper">
+        <Metadata
+          title="Blog | MikamiHero"
+          metaDescription="A list of all the blog posts on Mikami's website"
+        />
         <Header />
         <div className="blog-posts-container">
           <h1>Blog posts</h1>
