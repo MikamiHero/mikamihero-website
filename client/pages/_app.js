@@ -18,6 +18,9 @@ import "../styles/pages/post.css";
 import "../styles/pages/contact.css";
 import "../styles/pages/about.css";
 
+// CSS for error page
+import "../styles/pages/_error.css";
+
 // External import
 import "../styles/prismjs.css";
 
